@@ -55,4 +55,29 @@ userSchema.methods.deleteCardFromCart = function(productId){
     return this.save();
   }
 
+// userSchema.methods.addOrder = function() {
+//     const db = getDb();
+//     return this.getCart()
+//     .then(products => {
+//       const order = {
+//         items: products,
+//         user: {
+//           _id: new ObjectId(this._id),
+//           name: this.name
+//         }
+//       };
+//       return db.collection('orders')
+//       .insertOne(order)
+//     })
+//     .then(result => {
+//       this.cart = {items: []};
+//       return db
+//     .collection('users')
+//     .updateOne(
+//       {_id: new ObjectId(this._id)},
+//       {$set: {cart: {items: []}}}
+//     ); 
+//     })
+//   }
+
 module.exports = mongoose.model('user', userSchema);
